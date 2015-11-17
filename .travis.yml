@@ -1,0 +1,15 @@
+language: ruby
+sudo: false
+services:
+- postgresql
+before_script:
+- psql -c 'create database myapp_test;' -U postgres
+script:
+- RAILS_ENV=test bundle exec rake --trace db:migrate test
+deploy:
+  provider: heroku
+  api_key:
+    secure: nAAZYSak14gfqA6425qoxp7WEsPl7rhxTMCbHczYdHr5CIOoxldD3h9Zp8LFsY8PhD2RcJYjcB8Bo6yIOE2GjFxlEFlcYRn0cOX0DXMyGNz7NDQj6p60Cj8xv7lCSpFFvX6Yf8E+26lL8TZYxrEV3+xVARHfPGyurC9WNRtuu2i0hnD4my1yB/SwWYGGFyYUyT0J8ccCbu7blbugMEE951gMyzh3qDIqZInEvRg6/H91N62XCdNUlWrrlGnAEzaqeQBgXx5U+/mLMtwmM535aanMuo2/i+iRzV37fJW8N/NtqDvP/3yZmxsJL8oN4yrah99BqhJ2RqrnmqUKy7zcBtTd2kM9QZFPaQMuVkTv46a0sMfDPq/5caXuPeosDyeH+k2sfYLnQY4zewnfk00i12vu9qnCY0Z1cPVgOkJfEPnAyNsSM8ZSXJ26QkKXOKIxElB//jYqx4RDX/xH2ai7YLWjajfjK/RR4Zta4o+nRfAE57k2QxeGVhLSr1ZM2gg1Nu7nIdb9tidJ6FKrYKwNkzk7vmndh9hRN2O4GYUqUyGeoBd9q/00X5lUTSyZRIme/9l5eidmOUFnOgLVtvw8UpHH9bJ8zds3UQqffDFjSVi9IxRxhfijMrjypgFerSjaFIecF0JNO9qIzZ7Zyx4QreIHwWbiT7vL/ho7AbPxRRo=
+  app: nimbl3-rai1s
+  on:
+    repo: ibotdotout/nimbl3-rai1s
