@@ -1,13 +1,14 @@
 language: ruby
 sudo: false
 rvm:
-    - 2.2.3
+  - 2.2.3
 services:
-- postgresql
+  - postgresql
 before_script:
-- psql -c 'create database myapp_test;' -U postgres
+  - cp config/database.yml.travis config/database.yml
+  - psql -c 'create database travis_ci_test;' -U postgres
 script:
-- RAILS_ENV=test bundle exec rake --trace db:migrate test
+  - RAILS_ENV=test bundle exec rake --trace db:migrate test
 deploy:
   provider: heroku
   api_key:
