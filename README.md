@@ -1,10 +1,5 @@
-#[Quickstart Guide: Compose and Rails](https://docs.docker.com/compose/rails/)
+#[Nimbl3-rai1s](http://nimbl3-rai1s.herokuapp.com/)
 --------------------------------
+[![Build
+Status](https://travis-ci.org/ibotdotout/nimbl3-rai1s.svg)](https://travis-ci.org/ibotdotout/nimbl3-rai1s)
 
-file for Quickstart Guide
-
-How to:
-
-```sh
-$ ./_docker_bin/build && ./_docker_bin/new
-```
