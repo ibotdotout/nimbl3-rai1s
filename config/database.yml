@@ -11,7 +11,8 @@ test:
   <<: *default
   # database: myapp_test
 
+staging:
+  url: <%= ENV['DATABASE_URL'] %>
 
 production:
-  <<: *default
-  database: nimbl3_rai1s
+  url: <%= ENV['DATABASE_URL'] %>
