@@ -26,6 +26,8 @@ class UploadController < ApplicationController
                   rowarray.join(", "), user_id:
                   current_user.id)
     @job.save
+    @report = Report.new()
+    @report.query(@job, rowarray[0], 0)
     @data = rowarray.join(", ")
     respond_to do |format|
       format.html
