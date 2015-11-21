@@ -30,9 +30,11 @@ class UploadController < ApplicationController
     @report.query(@job, rowarray[0], 0)
     @data = rowarray.join(", ")
     respond_to do |format|
-      format.html
+      format.html{
+        redirect_to report_path(:id => @report.id)
+      }
       format.json{
-        render :json => @job
+        render :json => {job_id: @job.id, report_id: @report.id}
       }
     end
   end

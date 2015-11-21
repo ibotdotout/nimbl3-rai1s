@@ -24,4 +24,8 @@ class Report < ActiveRecord::Base
     self.attributes = params
     self.save
   end
+
+  def as_json(options={})
+    super(:methods => [:id, :lenght, :data], except: [:created_at, :updated_at, :user_id ,:page])
+  end
 end
