@@ -10,6 +10,7 @@ Badge](https://api.codacy.com/project/badge/grade/47e470ccf79f437381abd54e7a2ec4
 - Provide Oauth 2 Restful JSON API  
 - Only first keyword per file to search on <http://google.com> (Simple Version)  
 - Search/store result / keyword result page on Google using crawler web page  
+- Deploy to Heroku but have some problem with Report!!!  
 
 ### Unfinish
 - Extract large amounts of data from the Google search  
