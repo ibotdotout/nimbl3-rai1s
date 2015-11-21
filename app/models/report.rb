@@ -2,7 +2,6 @@ require 'query'
 
 class Report < ActiveRecord::Base
   belongs_to :job
-  serialize :state_ids
 
   def query(job, keyword, keyword_index)
     result = GoogleSearchQuery.new(keyword)
@@ -17,6 +16,7 @@ class Report < ActiveRecord::Base
       :right_adword => result.right_adword.length,
       :total_adword => result.total_adword.length,
       :none_adword => result.none_adword.length,
+      :total_link => result.total_link,
       :total_search => result.total_search_result,
       :page => result.page,
       :job_id => job.id

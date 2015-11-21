@@ -23,7 +23,7 @@ class GoogleSearchQuery
   end
 
   def total_search_result
-    @page ? @page.css('div#resultStats').text.match(/(\d+[,.])+\d+/) : []
+    @page ? @page.css('div#resultStats').text.match(/(\d+[,.])+\d+/) : 0
   end
 
   def total_adword
@@ -46,7 +46,7 @@ class GoogleSearchQuery
   end
 
   def total_link
-    @page ? total_adword + none_adword : []
+    @page ? total_adword.length + none_adword.length : 0
   end
 
   private

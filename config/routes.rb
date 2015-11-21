@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'report/index'
+
+  get 'report/show'
+
   resources :upload
+  resources :report
 
   devise_for :users
   root 'welcome#index'

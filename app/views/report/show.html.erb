@@ -1,0 +1,18 @@
+<h1><%= @report.keyword %></h1>
+<div> Number of AdWords advertisers in the top position: <%= @report.top_adword %> </div>
+<div> Number of AdWords advertisers in the right side position: <%= @report.right_adword %></div>
+<div> Total number of AdWords advertisers on the page: <%= @report.total_adword %></div>
+<div> Display URLs (in green) of the AdWords advertisers in the top position: </div>
+<% @report.top_adword_url.each do |url|  %>
+  <div style="margin-left:20px"><a href=<%= url %>> <%= url %></a></div>
+<% end %>
+<div> Display URLs (in green) of the AdWords advertisers in the right side position: </div>
+<% @report.right_adword_url.each do |url|  %>
+  <div style="margin-left:20px"><a href=<%= url %>> <%= url %></a></div>
+<% end %>
+<div>  Number of the non-AdWords results on the page:<%= @report.none_adword %></div>
+<% @report.none_adword_url.each do |url|  %>
+  <div style="margin-left:20px"><a href=<%= url %>> <%= url %></a></div>
+<% end %>
+<div>  Total number of links (all of them) on the page: <%= @report.total_link %></div>
+<div>  Total of search results for this keywords: <%= @report.total_search %></div>

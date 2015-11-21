@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20151121133829) do
     t.integer  "total_adword"
     t.integer  "none_adword"
     t.integer  "total_link"
-    t.integer  "total_search"
+    t.string   "total_search"
     t.text     "top_adword_url",   default: [],              array: true
     t.text     "right_adword_url", default: [],              array: true
     t.text     "none_adword_url",  default: [],              array: true
