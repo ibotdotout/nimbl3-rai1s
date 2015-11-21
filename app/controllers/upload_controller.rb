@@ -18,18 +18,15 @@ class UploadController < ApplicationController
   end
 
   def create
-    rowarray = Array.new
-
     file_data = params[:file].read
     csv_rows  = CSV.parse(file_data)
-    csv_rows.each do |row|
-      rowarray << row
-      @rowarraydisp = rowarray
-    end
+    rowarray = csv_rows.map { |row| row.join() }
+    @rowarraydisp = rowarray
     respond_to do |format|
       format.html
-      format.json {
-        render :json => {:data => @rowarraydisp}
+      format.json{
+        render :json => {:job_id => 1, :length => @rowarraydisp.length,
+                         :data => @rowarraydisp}
       }
     end
   end
