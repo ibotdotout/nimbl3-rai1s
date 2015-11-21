@@ -4,9 +4,10 @@ class UploadController < ApplicationController
 
   def index
     respond_to do |format|
+      @jobs = Job.where(:user_id => current_user.id)
       format.html
       format.json {
-        render :json => {:state => {:code => 0}, :data =>  "nothing"}
+        render :json => {:data => @jobs}
       }
     end
   end
@@ -21,12 +22,15 @@ class UploadController < ApplicationController
     file_data = params[:file].read
     csv_rows  = CSV.parse(file_data)
     rowarray = csv_rows.map { |row| row.join() }
-    @rowarraydisp = rowarray
+    @job= Job.new(length: rowarray.length, data:
+                  rowarray.join(", "), user_id:
+                  current_user.id)
+    @job.save
+    @data = rowarray.join(", ")
     respond_to do |format|
       format.html
       format.json{
-        render :json => {:job_id => 1, :length => @rowarraydisp.length,
-                         :data => @rowarraydisp}
+        render :json => @job
       }
     end
   end
